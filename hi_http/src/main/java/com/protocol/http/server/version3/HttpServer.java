@@ -25,7 +25,12 @@ public class HttpServer {
 
         public void handle(HttpExchange t) throws IOException {
             System.out.println(""+ t.getRemoteAddress());
-            String response = "This is the response";
+            try {
+                Thread.sleep(6000l);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            String response = "This is the response  <<<<<<<<<<< ";
             t.sendResponseHeaders(200, response.length());
             OutputStream os = t.getResponseBody();
             os.write(response.getBytes());

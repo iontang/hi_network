@@ -51,6 +51,7 @@ public class HttpClient {
             // 设置最大路由
             poolConnManager.setDefaultMaxPerRoute(50);
             // 根据默认超时限制初始化requestConfig
+//            int socketTimeout = 100;
             int socketTimeout = Integer.MAX_VALUE;
             int connectTimeout = 10000;
             int connectionRequestTimeout = 10000;
@@ -122,7 +123,7 @@ public class HttpClient {
                 HttpEntity entity = response.getEntity();
                 Thread.sleep(0l);
                 String result = EntityUtils.toString(entity, "utf-8");
-
+                System.out.println("result = " + result);
                 System.out.println(Thread.currentThread().getName() + " Finished");
             } catch (IOException e) {
                 e.printStackTrace();
@@ -183,17 +184,17 @@ public class HttpClient {
         System.out.println();
         threads[2].start();
 
-        Thread.sleep(50000l);
-        System.out.println("----------------  after Thread.sleep(50000l) ---------------");
-        System.out.println();
-        threads[3].start();
-
-        System.out.println("----------------  @@@@@@@@@@@@@@@@@@---------------");
-        System.out.println();
-        Thread.sleep(10000l);
-
-        System.out.println("================= after 10s, all end.");
-        System.out.println();
+//        Thread.sleep(50000l);
+//        System.out.println("----------------  after Thread.sleep(50000l) ---------------");
+//        System.out.println();
+//        threads[3].start();
+//
+//        System.out.println("----------------  @@@@@@@@@@@@@@@@@@---------------");
+//        System.out.println();
+//        Thread.sleep(10000l);
+//
+//        System.out.println("================= after 10s, all end.");
+//        System.out.println();
 
 //        for (Thread tmp : threads) {
 //            tmp.start();
